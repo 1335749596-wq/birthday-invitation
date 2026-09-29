@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4ead5">
+  <meta name="description" content="诚邀您于2026年10月1日共庆许绪华先生生日。">
+  <title>许绪华先生生日宴 · 诚挚邀请</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23881720'/%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%23efd28a' stroke-width='3'/%3E%3Cpath d='M20 32h24M32 20v24M23 23l18 18M41 23 23 41' stroke='%23efd28a' stroke-width='2' stroke-linecap='round' opacity='.75'/%3E%3Ccircle cx='32' cy='32' r='6' fill='%23efd28a'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --red: #8f2632;
+      --red-deep: #5b1821;
+      --gold: #b89142;
+      --gold-light: #e8cf96;
+      --champagne: #f2e3c4;
+      --champagne-light: #fff9ec;
+      --ink: #4d3228;
+      --paper: #fffaf0;
+      --muted: rgba(77, 50, 40, .7);
+      color-scheme: light;
+      font-family: "Noto Serif SC", "Songti SC", "STSong", "Microsoft YaHei", serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      min-width: 320px;
+      color: var(--paper);
+      background: #f4ead5;
+      overflow-x: hidden;
+    }
+
+    button, a { font: inherit; }
+    a { color: inherit; }
+
+    .page {
+      min-height: 100svh;
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      background:
+        linear-gradient(180deg, rgba(255, 249, 236, .08), rgba(244, 230, 200, .28)),
+        radial-gradient(circle at 50% 20%, rgba(255, 250, 236, .82), transparent 42%),
+        linear-gradient(145deg, #fff8e9, #e6cf9f 72%);
+    }
+
+    .page::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background: url("./assets/hero.png") center / cover no-repeat;
+      filter: saturate(.92) contrast(.98) brightness(1.02);
+    }
+
+    .page::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(180deg, rgba(255, 250, 238, .16), rgba(245, 232, 205, .28)),
+        radial-gradient(ellipse at center, rgba(255, 252, 243, .08), rgba(249, 238, 216, .18) 72%, rgba(175, 130, 63, .12));
+      pointer-events: none;
+    }
+
+    .frame {
+      width: min(100%, 760px);
+      min-height: calc(100svh - 44px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: clamp(44px, 7vw, 74px) clamp(22px, 6vw, 58px) 36px;
+      border: 1px solid rgba(184, 145, 66, .42);
+      border-radius: 42px;
+      background: linear-gradient(180deg, rgba(255, 250, 239, .42), rgba(246, 233, 207, .56));
+      box-shadow: inset 0 0 0 7px rgba(255, 255, 255, .13), 0 28px 70px rgba(102, 67, 29, .16);
+      backdrop-filter: blur(2px);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .frame::before,
+    .frame::after {
+      content: "";
+      position: absolute;
+      top: 18px;
+      width: 54px;
+      height: 54px;
+      border-top: 1px solid var(--gold);
+      opacity: .58;
+    }
+    .frame::before { left: 24px; border-left: 1px solid var(--gold); border-radius: 22px 0 0; }
+    .frame::after { right: 24px; border-right: 1px solid var(--gold); border-radius: 0 22px 0 0; }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 22px;
+      color: var(--red);
+      font-size: .82rem;
+      letter-spacing: .36em;
+      font-family: "STKaiti", "KaiTi", "FangSong", serif;
+    }
+    .eyebrow::before,
+    .eyebrow::after { content: ""; width: 34px; height: 1px; background: currentColor; opacity: .6; }
+
+    .title {
+      margin: 0;
+      font-weight: 500;
+      font-family: "STKaiti", "KaiTi", "FangSong", cursive;
+      font-size: clamp(3.1rem, 12vw, 6.3rem);
+      line-height: 1;
+      letter-spacing: .08em;
+      text-indent: .08em;
+      color: var(--red-deep);
+      text-shadow: 0 3px 24px rgba(255,255,255,.88);
+    }
+
+    .subtitle {
+      margin: 16px 0 0;
+      color: var(--gold);
+      font-family: "STKaiti", "KaiTi", "FangSong", cursive;
+      font-size: clamp(1rem, 3.6vw, 1.28rem);
+      letter-spacing: .3em;
+      text-indent: .3em;
+    }
+
+    .wish {
+      margin: 30px auto 32px;
+      max-width: 520px;
+      color: rgba(77, 50, 40, .86);
+      font-family: "STKaiti", "KaiTi", "FangSong", cursive;
+      font-size: clamp(1rem, 3vw, 1.12rem);
+      line-height: 2;
+      letter-spacing: .08em;
+    }
+
+    .details {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      border-block: 1px solid rgba(184, 145, 66, .3);
+      background: rgba(255, 249, 236, .2);
+    }
+
+    .detail {
+      padding: 21px 16px;
+    }
+    .detail + .detail { border-left: 1px solid rgba(184, 145, 66, .26); }
+    .label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--red);
+      font-family: "Microsoft YaHei", sans-serif;
+      font-size: .76rem;
+      letter-spacing: .24em;
+    }
+    .value {
+      display: block;
+      color: #a77d2f;
+      font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+      line-height: 1.45;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, .72);
+    }
+
+    .venue {
+      margin-top: 26px;
+      max-width: 600px;
+    }
+    .venue-name {
+      margin: 0 0 8px;
+      color: var(--red-deep);
+      font-family: "STKaiti", "KaiTi", "FangSong", cursive;
+      font-size: clamp(1.15rem, 4vw, 1.45rem);
+      font-weight: 600;
+    }
+    .address {
+      margin: 0;
+      color: var(--muted);
+      font-family: "Microsoft YaHei", sans-serif;
+      font-size: .94rem;
+      line-height: 1.75;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border: 1px solid rgba(143, 38, 50, .72);
+      border-radius: 999px;
+      background: var(--red);
+      color: var(--champagne-light);
+      font-family: "Microsoft YaHei", sans-serif;
+      font-size: .96rem;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .button.secondary { background: rgba(255, 249, 236, .62); color: var(--red-deep); }
+    .button:hover { transform: translateY(-2px); background: var(--gold); border-color: var(--gold); color: #fffaf0; }
+    .button:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+
+    .countdown {
+      margin: 28px 0 0;
+      color: rgba(77, 50, 40, .62);
+      font-family: "Microsoft YaHei", sans-serif;
+      font-size: .83rem;
+      letter-spacing: .08em;
+    }
+
+    .closing {
+      margin-top: auto;
+      padding-top: 28px;
+      color: var(--red);
+      font-family: "STKaiti", "KaiTi", "FangSong", cursive;
+      font-size: .92rem;
+      letter-spacing: .26em;
+      text-indent: .26em;
+      opacity: .88;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      z-index: 10;
+      transform: translate(-50%, 18px);
+      padding: 11px 18px;
+      border-radius: 999px;
+      background: var(--red-deep);
+      color: var(--champagne-light);
+      font-family: "Microsoft YaHei", sans-serif;
+      font-size: .9rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: .25s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,.3);
+    }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    @media (max-width: 560px) {
+      .page { padding: 10px; }
+      .frame {
+        min-height: calc(100svh - 20px);
+        border-radius: 28px;
+        padding: 42px 18px 24px;
+      }
+      .wish { margin-block: 22px 24px; }
+      .details { grid-template-columns: 1fr; }
+      .detail + .detail { border-left: 0; border-top: 1px solid rgba(184, 145, 66, .26); }
+      .detail { padding: 15px 12px; }
+      .address { font-size: .88rem; }
+      .actions { width: 100%; }
+      .button { flex: 1 1 150px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <article class="frame" aria-labelledby="invite-title">
+      <p class="eyebrow">诚挚邀请</p>
+      <h1 class="title" id="invite-title">许绪华</h1>
+      <p class="subtitle">先生生日宴</p>
+
+      <p class="wish">岁月温柔，家人相伴。<br>谨备家宴，诚邀您拨冗莅临，<br>共叙情谊，共庆生辰。</p>
+
+      <section class="details" aria-label="宴会信息">
+        <div class="detail">
+          <span class="label">日期</span>
+          <strong class="value">2026 年 10 月 1 日</strong>
+        </div>
+        <div class="detail">
+          <span class="label">年岁</span>
+          <strong class="value">1972 年出生 · 岁月正好</strong>
+        </div>
+      </section>
+
+      <section class="venue" aria-label="聚会地点">
+        <p class="venue-name">老鼓楼地道徽菜（清华附中店）</p>
+        <p class="address" id="address">经开区海恒街与至善路交口创客空间 A 幢 3 楼</p>
+      </section>
+
+      <div class="actions">
+        <a class="button" href="https://uri.amap.com/search?keyword=%E8%80%81%E9%BC%93%E6%A5%BC%E5%9C%B0%E9%81%93%E5%BE%BD%E8%8F%9C%EF%BC%88%E6%B8%85%E5%8D%8E%E9%99%84%E4%B8%AD%E5%BA%97%EF%BC%89&city=%E5%90%88%E8%82%A5&view=map&callnative=1" target="_blank" rel="noopener noreferrer" aria-label="在地图中搜索聚会地点">一键导航</a>
+        <button class="button secondary" type="button" id="calendarButton">加入日历</button>
+      </div>
+
+      <p class="countdown" id="countdown" aria-live="polite"></p>
+      <p class="closing">恭候光临 · 阖家同欢</p>
+    </article>
+  </main>
+
+  <div class="toast" id="toast" role="status">日历文件已生成</div>
+
+  <script>
+    (() => {
+      const eventDate = new Date('2026-10-01T00:00:00+08:00');
+      const countdown = document.getElementById('countdown');
+      const days = Math.ceil((eventDate - new Date()) / 86400000);
+      countdown.textContent = days > 0 ? `距离相聚还有 ${days} 天` : days === 0 ? '今日相聚，静候您的到来' : '感谢您的如约而至';
+
+      document.getElementById('calendarButton').addEventListener('click', () => {
+        const ics = [
+          'BEGIN:VCALENDAR',
+          'VERSION:2.0',
+          'PRODID:-//Birthday Invitation//CN',
+          'BEGIN:VEVENT',
+          'UID:xuxuhua-birthday-20261001',
+          'DTSTAMP:20260929T000000Z',
+          'DTSTART;VALUE=DATE:20261001',
+          'DTEND;VALUE=DATE:20261002',
+          'SUMMARY:许绪华先生生日宴',
+          'LOCATION:老鼓楼地道徽菜（清华附中店），经开区海恒街与至善路交口创客空间A幢3楼',
+          'DESCRIPTION:诚邀您共庆许绪华先生生日。',
+          'END:VEVENT',
+          'END:VCALENDAR'
+        ].join('\r\n');
+        const url = URL.createObjectURL(new Blob([ics], { type: 'text/calendar;charset=utf-8' }));
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = '许绪华先生生日宴.ics';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+        const toast = document.getElementById('toast');
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 1800);
+      });
+    })();
+  </script>
+</body>
+</html>
